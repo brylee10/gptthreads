@@ -1,0 +1,33 @@
+/*
+ * Parent element which groups the chat box and the chat icon. 
+ * Shadow host, formatted with main document page style 
+ */
+.gptthreads-group {
+    /* 
+     * Prevent other styles from the surrounding page from being inherited, such as `white-space` in code blocks
+     * which affects text wrapping.
+     */
+    all: initial; 
+    position: absolute;
+}
+
+::highlight(gptthreads-non-selected),
+::highlight(gptthreads-selected),
+::highlight(gptthreads-context) {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::highlight(gptthreads-non-selected) {
+    background-color: #BCB7C5;
+    color: black;
+}
+
+::highlight(gptthreads-selected) {
+    background-color: #A888B5;
+    color: white;
+}
+
+::highlight(gptthreads-context) {
+    background-color: #edededd4;
+    color: black;
+}

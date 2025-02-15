@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPT Threads</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-bar">
+        <h1 class="header">GPT Threads</h1>
+        <!-- GitHub Icon Link -->
+        <div class="github-link">
+          <span class="info" data-tooltip="View source code on GitHub.">
+            <a href="https://github.com/brylee10/gptthreads" target="_blank">
+              <img src="../assets/github-mark-white.svg" alt="GitHub" />
+            </a>
+          </span>
+        </div>
+      </div>
+
+      <!-- Model Version Dropdown -->
+      <div class="option">
+        <label>Model Version</label>
+        <select id="modelVersion">
+          <option value="gpt-4o">gpt-4o</option>
+          <option value="gpt-4o-mini">gpt-4o-mini</option>
+          <option value="o3-mini">o3-mini</option>
+        </select>
+        <span class="info" data-tooltip="Select the model version you want to use.">
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Add Context Words -->
+      <div class="option">
+        <label>Surrounding Context Words</label>
+        <input type="number" id="contextWords" />
+        <span
+          class="info"
+          data-tooltip="Number of words to include as context around and including the highlighted text. Set to 0 to only use highlighted text."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Max Response Words -->
+      <div class="option">
+        <label>Max Response Words</label>
+        <input type="number" id="maxResponseWords" />
+        <span
+          class="info"
+          data-tooltip="Max number of words to include in the response (approx). Note that reasoning models include CoT tokens in the word count, so you may need to increase max response words."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Use Previous Box Placement -->
+      <div class="option">
+        <label>Use Previous Box Placement</label>
+        <input type="checkbox" id="boxPlacement" />
+        <span
+          class="info"
+          data-tooltip="When toggled, use the offset of the most recent dragged chat box for new boxes on this page. Otherwise, boxes are placed centered below highlighted text. Useful for persistently repositioning boxes relative to page main content."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Use Previous Box Size -->
+      <div class="option">
+        <label>Use Previous Chat Box Size</label>
+        <input type="checkbox" id="boxSize" />
+        <span
+          class="info"
+          data-tooltip="When toggled, use the size of the latest chat box for new boxes on this page. Otherwise, uses default chat box size."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Show Context Highlights -->
+      <div class="option">
+        <label>Show Context Highlights</label>
+        <input type="checkbox" id="showContextHighlights" />
+        <span
+          class="info"
+          data-tooltip="When enabled, highlights the supplementary context around the selected text sent to the model."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- OpenAI API Key Input -->
+      <div class="option">
+        <label>OpenAI API Key</label>
+        <input
+          type="password"
+          id="gptThreadsApiKey"
+          placeholder="Your OpenAI API Key"
+        />
+        <span
+          class="info"
+          data-tooltip="OpenAI API key is used to make requests (stored locally in Chrome storage, not shared)."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+
+      <!-- Toggle Extension On/Off -->
+      <div class="option">
+        <label>Extension On</label>
+        <input type="checkbox" id="extensionToggle" />
+        <span
+          class="info"
+          data-tooltip="Toggle the extension on or off. Useful for temporarily disabling GPT Threads tooltip."
+        >
+          <img src="../assets/info.svg" alt="Info" />
+        </span>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

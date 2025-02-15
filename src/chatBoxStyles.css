@@ -1,0 +1,249 @@
+.gptthreads-container {
+    background: #343541;
+    border: 1px solid #565869;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: "Open Sans", Arial, sans-serif;
+    /* same default font size as ChatGPT */
+    font-size: 16px;
+    color: #e8e8ea;
+    display: flex;
+    flex-direction: column;
+}
+
+.gptthreads-header {
+    background: #202123;
+    padding: 10px;
+    border-bottom: 1px solid #565869;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    user-select: none;
+    cursor: grab;
+}
+
+.gptthreads-header-btns {
+    gap: 8px;
+    display: flex;
+}
+
+.gptthreads-close {
+    background: none;
+    border: none;
+    color: #a0a0aa;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gptthreads-close:hover {
+    color: #ffffff;
+}
+
+.gptthreads-context-container {
+    padding: 5px 10px; 
+    font-style: normal; 
+    font-size: 12px; 
+    border-bottom: 1px solid #565869; 
+    text-wrap: wrap; 
+}
+
+.gptthreads-context {
+    font-style: italic;
+    white-space: pre-wrap; /* If highlighted text had line breaks, preserve */
+}
+
+.gptthreads-resizer {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+}
+
+.gptthreads-history {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #565869 #343541;
+}
+
+.gptthreads-history::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gptthreads-history::-webkit-scrollbar-track {
+    background: #343541;
+}
+
+.gptthreads-history::-webkit-scrollbar-thumb {
+    background: #565869;
+    border-radius: 4px;
+}
+
+.gptthreads-message {
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+
+.gptthreads-user {
+    background: #3e3f4b;
+    text-align: left;
+    color: white;
+    /* Visually indicate user message with smaller width */
+    width: 70%;
+}
+
+.gptthreads-user-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gptthreads-assistant {
+    background: transparent;
+    text-align: left;
+    color: white;
+    /* Gradually transition in new text */
+
+}
+
+.gptthreads-assistant * {
+    /* Make all text white */
+    color: white !important;
+}
+
+.gptthreads-input-container {
+    display: flex;
+    padding: 8px;
+    border-top: 1px solid #565869;
+    background: #2a2b32;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.gptthreads-input-container button.disabled {
+    pointer-events: none;
+    background-color: #ddd;
+}
+
+.gptthreads-input-container textarea {
+    flex: 1;
+    resize: none; /* Prevent user resizing of the textarea */
+    padding: 8px;
+    margin-right: 8px;
+    background: #3e3f4b;
+    color: #e8e8ea;
+    border: 1px solid #565869;
+    border-radius: 4px;
+    outline: none;
+    height: "auto"; 
+    box-sizing: border-box;
+}
+
+.gptthreads-input-container textarea::placeholder {
+    color: #a0a0aa;
+}
+
+.gptthreads-send-button-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    height: 100%; 
+}
+
+.gptthreads-input-container button {
+    padding: 0;
+    background: #fff;
+    border: none;
+    color: black;
+    font-weight: 500;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gptthreads-input-container button:hover {
+    background: #ddd;
+}
+
+.gptthreads-input-container button > * {
+    /* Implicitly inherits parent */
+    background-color: transparent;
+}
+
+.gptthreads-input-container button img {
+    width: 24px;
+    height: 24px;
+    fill: black;
+    object-fit: contain;
+}
+
+.gptthreads-threads-icon {
+    position: absolute;
+    cursor: pointer;
+    background: #202123;
+    color: #fff;
+    padding: 2px 4px; /* Top-Bottom: 2px, Left-Right: 4px */
+    border-radius: 4px;
+    border: 1px solid #565869;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.gptthreads-threads-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Waiting indicator */
+.waiting-indicator {
+    display: inline-block;
+    font-size: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+}
+  
+.waiting-indicator span {
+    display: inline-block;
+    animation: blink 1.4s infinite both;
+}
+  
+.waiting-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+  
+.waiting-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+  
+@keyframes blink {
+    0%, 20%, 50%, 80%, 100% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+}
+
+textarea {
+    font-family: "Open Sans", Arial, sans-serif;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "gptthreads",
+  "version": "1.0.0",
+  "main": "background.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "compile": "npx tsc",
+    "webpack": "webpack --config webpack.config.js",
+    "copy-files": "rsync -av --exclude '*.ts' ./src/ ./dist/src && cp ./manifest.json ./dist/manifest.json",
+    "build": "npm run clean && npm run webpack && npm run copy-files"
+  },
+  "author": "Bryan Lee",
+  "license": "ISC",
+  "description": "Chat with GPT within a webpage.",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/chrome": "^0.0.297",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "katex": "^0.16.21",
+    "marked": "^15.0.6",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "dompurify": "^3.2.4",
+    "openai": "^4.79.1"
+  }
+}
