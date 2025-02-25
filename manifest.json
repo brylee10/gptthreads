@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "description": "Ask ChatGPT questions in threads in each webpage.",
-    "permissions": ["activeTab", "scripting", "storage"],
+    "permissions": ["storage"],
     "action": {
       "default_title": "GPT Threads",
       "default_popup": "src/popup/popup.html"
